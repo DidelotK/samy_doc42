@@ -1,0 +1,20 @@
+# Site settings
+title: Doc42
+email: afshin.meh@gmail.com
+author: "Afshin Mehrabani"
+description: "Doc42 - an easy to use documentation tool"
+keywords: "doc42, documentation, doc, usablica, jekyll"
+
+baseurl: "" # the subpath of your doc, e.g. /doc
+url: "127.0.0.0.1" # the base hostname & protocol for your site
+twitter_username: kevin
+github_username:  usablica
+
+# use this to define the categories of your documentation
+category-list: [getting-started, pages, site, developers, extra]
+# optionally you can define icon for each category (for the sidebar)
+# Doc42 uses Font Awesome
+category-icons: [gear, cube, dashboard, code, expand]
+
+# Build settings
+markdown: kramdown
