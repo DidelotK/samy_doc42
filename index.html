@@ -76,7 +76,9 @@
             'help.tuto.sched.duration': 'Choisissez la durée unitaire d\'un cours',
             'help.tuto.sched.subdiv': 'Choisissez le fractionnement d\'unité de cours',
             'help.tuto.sched.day': 'Choisissez les jours de cours',
-            'help.tuto.sched.display': 'Enfin choisissez le mode d\'affichage'
+            'help.tuto.sched.display': 'Enfin choisissez le mode d\'affichage',
+            'help.tuto.sched.submit': 'Cliquez pour valider',
+            'help.tuto.sched.label': 'Attribuez un nom à votre emploi du temps',
         }
     });
 
@@ -137,7 +139,7 @@
             next: function () {
                 $('[data-module="dashboard"]').click();
             }
-        }
+        },
     ];
     OS.Modules.Dashboard.help = [
         {
@@ -172,6 +174,21 @@
         {
             elt: '#weekdays',
             tuto: 'help.tuto.sched.day'
+        },
+        {
+            elt: '#displaymode',
+            tuto: 'help.tuto.sched.display'
+        },
+        {  
+            elt: '#submit',
+            tuto: 'help.tuto.sched.submit',
+            next: function () {
+                $('[data-module="submit"]').click();
+            }
+        },
+        {
+            elt: '#shed-label',
+            tuto: 'help.tuto.sched.label'
         },
         {
             elt: '#displaymode',
