@@ -1,12 +1,31 @@
-# samy_doc42
+# Pioupiou
 
-# Requirement
+# Documentation
+
+## Requirements 
 
 - docker
 - docker-compose
 
-# Launch
+## Launch
 
 ```bash
 docker-compose up
 ```
+
+# App
+
+## Launch
+
+### With Python2
+
+```bash
+python -m SimpleHTTPServer 9000
+```
+
+### With Python3
+
+```bash
+python -m http.server 9000
+```
+

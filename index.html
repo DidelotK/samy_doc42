@@ -1,0 +1,202 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Omniscol</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+
+
+    <link rel="stylesheet" href="http://newedt.omniscoltest.in/static/webapp/css/lib.min.css">
+    <link rel="stylesheet" href="http://newedt.omniscoltest.in/static/core/css/core.min.css">
+    <link rel="stylesheet" href="http://newedt.omniscoltest.in/static/webapp/css/modules.min.css">
+
+</head>
+<body class="logged omniscolbody">
+<div class="omniscol">
+</div>
+
+
+<script type="text/javascript" src="http://newedt.omniscoltest.in/static/webapp/js/lib.min.js"></script>
+<script type="text/javascript" src="http://newedt.omniscoltest.in/static/webapp/js/libadmin.min.js"></script>
+<script type="text/javascript" src="http://newedt.omniscoltest.in/static/core/js/core.min.js"></script>
+<script type="text/javascript" src="http://newedt.omniscoltest.in/static/webapp/js/components.min.js"></script>
+<script type="text/javascript" src="http://newedt.omniscoltest.in/static/webapp/js/home.min.js"></script>
+<script type="text/javascript" src="http://newedt.omniscoltest.in/static/webapp/js/sched.min.js"></script>
+<script type="text/javascript" src="http://newedt.omniscoltest.in/static/webapp/js/dashboard.min.js"></script>
+<script type="text/javascript" src="http://newedt.omniscoltest.in/static/webapp/js/timetables.min.js"></script>
+<script type="text/javascript" src="http://newedt.omniscoltest.in/static/webapp/js/admin.min.js"></script>
+
+
+<script type="text/javascript">
+    OS.initConfig({
+        WEBAPP_NAME: 'Omniscol',
+        WEBAPP_TYPE: 'webapp',
+        //HEADER_NAME: 'X-Omniscol-Domain',
+        API_DOMAIN: 'http://newedt.omniscoltest.in/api/',
+        COOKIE_NAME: 'authtoken',
+        COOKIE_DOMAIN: 'newedt.omniscoltest.in',
+        USER_LOGIN: 'introjs',
+        USER_ID: '0',
+        USER_NAME: {'last_name': 'IntroJS'},
+        LOCALE: 'fr',
+        COUNTRY: 'fr',
+        USER_ROLES: ['admin'],
+        SCHOOL: 'newedt',
+        HTML5ROUTING: true,
+        IGNORESUBPREFIX: true,
+        LOGGED: true,
+        VIEW: {
+            header: {
+                search: true,
+                image: 'http://newedt.omniscoltest.in/images/webapp/logo-text-w64.png'
+            },
+            modules: true,
+            notifications: true,
+            loadingscreen: 'big'
+        },
+        //URL_PREFIX: '/index.html',
+        KEEPALIVE: 3600,
+        EXTRA_TRANSLATIONS: {
+            'introjs_home': 'Bienvenu sur le portail de Omniscol. Je vais vous guider !',
+            'help.tuto.sched.intro': 'Bienvenu dans le menu d\'affichage des emplois du temps.',
+            'help.tuto.sched.dayselect': 'Choisissez ici les jours que vous voulez afficher, ainsi que le format d\'affichage jour ou semaine ou bien opter pour le mode Dynamique qui affiche uniquement les journées de cours.',
+            'help.tuto.sched.dayselect_days': 'Choisissez la semaine de l\'année que vous souhaitez afficher.',
+            'help.tuto.sched.addsched': 'Choisissez les emplois du temps que vous souhaitez afficher à l\'aide des filtres.',
+            'help.tuto.sched.addplanning': 'Grâce à la fonction Planning afficher vos emplois du temps sous la forme d\'un planning.',
+            'help.tuto.sched.reorganize': 'Cette fonctionnalité permet de visualiser la réorganisation des cours de la semaine.',
+            'help.tuto.sched.reorganize_screen': 'Vous pouvez réorganiser votre écran d\'affichage.',
+            'help.tuto.sched.reorganize_modifs': 'Centre de notifications des modifications apportées aux emplois du temps.',
+            'help.tuto.sched.last': 'C\'est tout pour cet onglet. Pour poursuivre la démo cliquez sur "Passez au prochain tuto", Pour revoir cette démo recliquer sur le symbole "?" ',
+            'help.tuto.next': 'Passez au prochain tuto.',
+            'help.tuto.dashboard.intro': 'Le Dashboard vous permet de visualiser vos effectifs de professeurs, les heures qu\'ils ont effectué, les matières qu\'ils enseignent, et les classes qui lui sont assignées.',
+            'introjs_timetables': 'Dans ce menu de Gestion des Emplois du Temps, vous pourrez créer et gérer les EDT que vous aurez créé.',
+            'help.tuto.sched.create': 'Cliquez ici pour commencer le processus de création d\'un emploi du temps',
+            'help.tuto.sched.duration': 'Choisissez la durée unitaire d\'un cours',
+            'help.tuto.sched.subdiv': 'Choisissez le fractionnement d\'unité de cours',
+            'help.tuto.sched.day': 'Choisissez les jours de cours',
+            'help.tuto.sched.display': 'Enfin choisissez le mode d\'affichage'
+        }
+    });
+
+    OS.startKA(3600);
+
+    OS.Modules.Home.help = [{tuto: 'introjs_home'}];
+
+    OS.Modules.Schedules.help = [
+        {
+            tuto: 'help.tuto.sched.intro'
+        },
+        {
+            elt: '#sched-daysselect',
+            tuto: 'help.tuto.sched.dayselect',
+            help: 'sched.choosedaysweek'
+        },
+        {
+            elt: '#sched-daysselect #displaydays',
+            tuto: 'help.tuto.sched.dayselect_days',
+            actionBefore: function () {
+                $('.omniscol #sched-daysselect:not(.open) .dropdown-toggle').dropdown('toggle');
+            },
+            actionAfter: function () {
+                $('.omniscol #sched-daysselect.open .dropdown-toggle').dropdown('toggle');
+            }
+        },
+        {
+            elt: '#sched-filter',
+            tuto: 'help.tuto.sched.addsched'
+        },
+        {
+            elt: '.new-planning',
+            tuto: 'help.tuto.sched.addplanning',
+            help: 'sched.planning_add',
+            position_help: 'xxbottom'
+        },
+        {
+            elt: '#viewreorganize',
+            tuto: 'help.tuto.sched.reorganize',
+            help: 'sched.view_reorganize',
+            position_help: 'xbottom'
+        },
+        {
+            tuto: 'help.tuto.sched.reorganize_screen',
+            actionBefore: function () {
+                $('.omniscol #viewreorganize').click();
+            },
+            actionPrevious: function () {
+                $('.omniscol #viewschedules').click();
+            }
+        },
+        {
+            elt: '#modiflist-button',
+            tuto: 'help.tuto.sched.reorganize_modifs'
+        },
+        {
+            tuto: 'help.tuto.sched.last',
+            next: function () {
+                $('[data-module="dashboard"]').click();
+            }
+        }
+    ];
+    OS.Modules.Dashboard.help = [
+        {
+            tuto: 'help.tuto.dashboard.intro'
+        },
+        {
+            tuto: 'help.tuto.sched.last',
+            next: function () {
+                $('[data-module="timetables"]').click();
+            }
+        }
+    ];
+    OS.Modules.Timetables.help = [
+        {
+            tuto: 'introjs_timetables'
+        },
+        {
+            elt: '#create-timetable',
+            tuto: 'help.tuto.sched.create',
+            next: function () {
+                $('[data-module="create-timetable"]').click();
+            }
+        },
+        {
+            elt: '#time-period',
+            tuto: 'help.tuto.sched.duration'
+        },
+        {
+            elt: '#time-unit',
+            tuto: 'help.tuto.sched.subdiv'
+        },
+        {
+            elt: '#weekdays',
+            tuto: 'help.tuto.sched.day'
+        },
+        {
+            elt: '#displaymode',
+            tuto: 'help.tuto.sched.display'
+        },
+        {
+            tuto: 'help.tuto.sched.last',
+            next: function () {
+                $('[data-module="admin"]').click();
+            }
+        }
+    ];
+    OS.Modules.Admin.help = [
+        {
+            tuto: 'introjs_admin'
+        },
+        {
+            elt: 'r',
+            tuto: 'help.tuto.sched.dayselect',
+            help: 'sched.choosedaysweek'
+        }
+    ];
+
+    $(document).ready(OS.initialLoading);
+</script>
+
+</body>
+</html>
