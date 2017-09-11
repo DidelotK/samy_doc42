@@ -4,7 +4,7 @@ services:
     command: jekyll serve
     image: jekyll/jekyll:latest
     volumes:
-      - $PWD/app:/srv/jekyll
+      - $PWD/doc42:/srv/jekyll
     ports:
       - 4000:4000
       - 35729:35729
