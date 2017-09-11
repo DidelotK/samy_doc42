@@ -59,7 +59,8 @@
         //URL_PREFIX: '/index.html',
         KEEPALIVE: 3600,
         EXTRA_TRANSLATIONS: {
-            'introjs_home': 'Bienvenu sur le portail de Omniscol. Je vais vous guider !',
+            'introjs_home': 'Bienvenu sur le portail de Omniscol. Je vais vous guider ! Suivez les 5 étapes de création d\'un emploi du temps',
+            
             'help.tuto.sched.intro': 'Bienvenu dans le menu d\'affichage des emplois du temps.',
             'help.tuto.sched.dayselect': 'Choisissez ici les jours que vous voulez afficher, ainsi que le format d\'affichage jour ou semaine ou bien opter pour le mode Dynamique qui affiche uniquement les journées de cours.',
             'help.tuto.sched.dayselect_days': 'Choisissez la semaine de l\'année que vous souhaitez afficher.',
@@ -68,21 +69,45 @@
             'help.tuto.sched.reorganize': 'Cette fonctionnalité permet de visualiser la réorganisation des cours de la semaine.',
             'help.tuto.sched.reorganize_screen': 'Vous pouvez réorganiser votre écran d\'affichage.',
             'help.tuto.sched.reorganize_modifs': 'Centre de notifications des modifications apportées aux emplois du temps.',
-            'help.tuto.sched.last': 'C\'est tout pour cet onglet. Pour poursuivre la démo cliquez sur "Passez au prochain tuto", Pour revoir cette démo recliquer sur le symbole "?" ',
+            'help.tuto.last': 'C\'est tout pour cet onglet. Pour poursuivre la démo cliquez sur "Passez au prochain tuto", Pour revoir cette démo recliquer sur le symbole "?" ',
             'help.tuto.next': 'Passez au prochain tuto.',
+            
             'help.tuto.dashboard.intro': 'Le Dashboard vous permet de visualiser vos effectifs de professeurs, les heures qu\'ils ont effectué, les matières qu\'ils enseignent, et les classes qui lui sont assignées.',
+            
             'introjs_timetables': 'Dans ce menu de Gestion des Emplois du Temps, vous pourrez créer et gérer les EDT que vous aurez créé.',
-            'help.tuto.sched.create': 'Cliquez ici pour commencer le processus de création d\'un emploi du temps',
-            'help.tuto.sched.duration': 'Choisissez la durée unitaire d\'un cours',
-            'help.tuto.sched.subdiv': 'Choisissez le fractionnement d\'unité de cours',
-            'help.tuto.sched.day': 'Choisissez les jours de cours',
-            'help.tuto.sched.display': 'Enfin choisissez le mode d\'affichage'
+            'help.tuto.timetables.create': 'Cliquez ici pour commencer le processus de création d\'un emploi du temps',
+            'help.tuto.timetables.duration': 'Choisissez la durée unitaire d\'un cours',
+            'help.tuto.timetables.subdiv': 'Choisissez le fractionnement d\'unité de cours',
+            'help.tuto.timetables.day': 'Choisissez les jours de cours',
+            'help.tuto.timetables.display': 'Enfin choisissez le mode d\'affichage',
+            'help.tuto.timetables.submit': 'Cliquez pour valider',
+            'help.tuto.sched.label': 'Attribuez un nom à votre emploi du temps',
+            'help.tuto.timetables.sites' : 'Attribuez un ou des sites à votre emploi du temps',
+            'help.tuto.timetables.teachers' : 'Attribuez des professeurs à votre emploi du temps',
+            'help.tuto.timetables.classes' : 'Attribuez une classes d\'élèves à votre emploi du temps',
+            'help.tuto.timetables.groups' : 'Paramétrez vos groupes',
+            'help.tuto.timetables.time-dispatch' : 'Gérez la répartition des heures',
+            'help.tuto.timetables.generation' : 'Pour finir générez !, 
+            
+            'introjs_admin': 'Vous voici dans l\'interface Administrateur, ici vous pouvez ajouter des Utilisateurs.',
+            'help.tuto.admin.subjects': 'Ajoutez ici les matières spécifiques absente dans la base de donnée',
+            'help.tuto.admin.parameters' :'Parametrez l\'année scolaire en cours ainsi que les niveaux de classes et enfi les paramètres initaux',
+            'help.tuto.admin.schoolyears' : 'Entrez ici le début et la fin de l\'année concernée ainsi que les vacances scolaires.',
+            'help.tuto.admin.importexport' :'ici vous pouvez importer ou exporter vos données',
         }
     });
 
     OS.startKA(3600);
-
-    OS.Modules.Home.help = [{tuto: 'introjs_home'}];
+        
+    OS.Modules.Home.help = [
+        {
+        actionBefore: function () {
+                $("first-time-show").addClass("hidden");
+         }, 
+        {
+            tuto: 'introjs_home'
+        },
+    ];
 
     OS.Modules.Schedules.help = [
         {
@@ -133,11 +158,11 @@
             tuto: 'help.tuto.sched.reorganize_modifs'
         },
         {
-            tuto: 'help.tuto.sched.last',
+            tuto: 'help.tuto.last',
             next: function () {
                 $('[data-module="dashboard"]').click();
             }
-        }
+        },
     ];
     OS.Modules.Dashboard.help = [
         {
@@ -156,29 +181,76 @@
         },
         {
             elt: '#create-timetable',
-            tuto: 'help.tuto.sched.create',
+            tuto: 'help.tuto.timetables.create',
             next: function () {
                 $('[data-module="create-timetable"]').click();
             }
         },
         {
             elt: '#time-period',
-            tuto: 'help.tuto.sched.duration'
+            tuto: 'help.tuto.timetables.duration'
         },
         {
             elt: '#time-unit',
-            tuto: 'help.tuto.sched.subdiv'
+            tuto: 'help.tuto.timetables.subdiv'
         },
         {
             elt: '#weekdays',
-            tuto: 'help.tuto.sched.day'
+            tuto: 'help.tuto.timetables.day'
         },
         {
             elt: '#displaymode',
-            tuto: 'help.tuto.sched.display'
+            tuto: 'help.tuto.timetables.display'
+        },
+        {  
+            elt: '#submit',
+            tuto: 'help.tuto.timetables.submit',
+            next: function () {
+                $('[data-module="submit"]').click();
+            }
         },
         {
-            tuto: 'help.tuto.sched.last',
+            elt: '#sched-label',
+            tuto: 'help.tuto.sched.label'
+        },
+        {
+            tuto: 'help.tuto.timetablessites',
+            next: function () {
+                $('[data-content="sites"]').click();
+            }
+        },
+        {
+            tuto: 'help.tuto.timetables.teachers',
+            next: function () {
+                $('[data-content="teachers"]').click();
+            }
+        },
+        {
+            tuto: 'help.tuto.timetables.classes',
+            next: function () {
+                $('[data-content="classes"]').click();
+            }
+        },
+        {
+            tuto: 'help.tuto.timetables.groups',
+            next: function () {
+                $('[data-content="groups"]').click();
+            }
+        },
+        {
+            tuto: 'help.tuto.timetables.time-dispatch',
+            next: function () {
+                $('[data-content="time-dispatch"]').click();
+            }
+        },
+        {
+            tuto: 'help.tuto.timetables.generation',
+            next: function () {
+                $('[data-content="generation"]').click();
+            }
+        },
+        {
+            tuto: 'help.tuto.last',
             next: function () {
                 $('[data-module="admin"]').click();
             }
@@ -189,9 +261,34 @@
             tuto: 'introjs_admin'
         },
         {
-            elt: 'r',
-            tuto: 'help.tuto.sched.dayselect',
-            help: 'sched.choosedaysweek'
+            tuto: 'help.tuto.admin.subjects',
+            next: function () {
+                $('[data-content="subjects"]').click();
+            }
+        },
+        {
+            tuto: 'help.tuto.admin.parameters',
+            next: function () {
+                $('[data-content="parameters"]').click();
+            }
+        },
+         {
+            tuto: 'help.tuto.admin.schoolyears',
+            next: function () {
+                $('[data-content="schoolyears"]').click();
+            }
+        },
+        {
+            tuto: 'help.tuto.admin.importexport',
+            next: function () {
+                $('[data-content="importexport"]').click();
+            }
+        },
+        {
+            tuto: 'help.tuto.sched.last',
+            next: function () {
+                $('[data-module]').click();
+            }
         }
     ];
 
