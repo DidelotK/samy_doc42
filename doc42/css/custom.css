@@ -1,21 +1,33 @@
 html, body {
-    height: 100%
+    height: 100%;
+    overflow: hidden;
+}
+body {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: -o-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    -o-flex-direction: column;
+    flex-direction: column;
 }
 .menu .item.header img {
-    width: 10px;
     height: 10px;
 }
 .example-grid .column, .example-grid .columns {
-  background: #EEE;
-  text-align: center;
-  border-radius: 4px;
-  font-size: 1rem;
-  text-transform: uppercase;
-  height: 30px;
-  line-height: 30px;
-  margin-bottom: .75rem;
-  font-weight: 600;
-  letter-spacing: .1rem; 
+    background: #EEE;
+    text-align: center;
+    border-radius: 4px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: .75rem;
+    font-weight: 600;
+    letter-spacing: .1rem;
 }
 .page-content {
     margin-top: 30px;
@@ -28,7 +40,7 @@ html, body {
     margin-bottom: 1.5rem;
 }
 pre[class*="language-"] {
-  background:  #f8f8f8 !important;
+    background:  #f8f8f8 !important;
 }
 .hero {
     height: 100%;
@@ -37,8 +49,19 @@ pre[class*="language-"] {
 }
 .hero .logo {
     text-align: center;
-    margin-top: 3rem;
+    margin-top: 20px;
     opacity: 0;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: -o-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    -o-flex-direction: column;
+    flex-direction: column;
+    align-content: center;
     -webkit-animation-name: logo;
     animation-name: logo;
     -webkit-animation-duration: 3s;
@@ -49,8 +72,10 @@ pre[class*="language-"] {
 .hero .logo span {
     color: #696969;
 }
+
 .hero .logo img {
-    width: 100px
+    width: 250px;
+    margin: auto;
 }
 .hero h1 {
     color: #525252;
@@ -59,57 +84,62 @@ pre[class*="language-"] {
 }
 
 @-webkit-keyframes overlay {
-  0% {
-    opacity: 0;
-  }
+    0% {
+        opacity: 0;
+    }
 
-  100% {
-    opacity: .50;
-  }
+    100% {
+        opacity: .50;
+    }
 }
 
 @keyframes overlay {
-  0% {
-    opacity: 0;
-  }
+    0% {
+        opacity: 0;
+    }
 
-  100% {
-    opacity: .50;
-  }
+    100% {
+        opacity: .50;
+    }
 }
 
 @-webkit-keyframes logo {
-  0% {
-    opacity: 0;
-  }
+    0% {
+        opacity: 0;
+    }
 
-  100% {
-    opacity: 1;
-  }
+    100% {
+        opacity: 1;
+    }
 }
 
 @keyframes logo {
-  0% {
-    opacity: 0;
-  }
+    0% {
+        opacity: 0;
+    }
 
-  100% {
-    opacity: 1;
-  }
+    100% {
+        opacity: 1;
+    }
 }
 div.fluid {
-     padding-left: 20px;
-     padding-right: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    -webkit-flex: 1 1 auto;
+    -moz-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    -o-flex: 1 1 auto;
+    flex: 1 1 auto;
 }
 .header-link {
-  position: relative;
-  left: 0.5em;
-  opacity: 0;
-  font-size: 0.8em;
+    position: relative;
+    left: 0.5em;
+    opacity: 0;
+    font-size: 0.8em;
 
-  -webkit-transition: opacity 0.2s ease-in-out 0.1s;
-  -moz-transition: opacity 0.2s ease-in-out 0.1s;
-  -ms-transition: opacity 0.2s ease-in-out 0.1s;
+    -webkit-transition: opacity 0.2s ease-in-out 0.1s;
+    -moz-transition: opacity 0.2s ease-in-out 0.1s;
+    -ms-transition: opacity 0.2s ease-in-out 0.1s;
 }
 
 h2:hover .header-link,
@@ -117,7 +147,7 @@ h3:hover .header-link,
 h4:hover .header-link,
 h5:hover .header-link,
 h6:hover .header-link {
-  opacity: 1;
+    opacity: 1;
 }
 
 .docs section {
@@ -135,15 +165,30 @@ h6:hover .header-link {
     left: 25%;
     border-top: 1px solid #eee;
 }
-
+/*#1bc5b3*/
 #main_header > nav {
-    padding: 10px 0;
-    background-color: rgb(247, 247, 247);
+    padding: 0;
+    background-color: #25807c;
     border-bottom: 1px solid #e8e8e8;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: -o-flex;
+    display: flex;
+    align-items: center;
 }
+#main_header > nav .item {
+    color: #fff;
+}
+
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
     text-decoration: none !important;
 }
 #contents > div {
     padding-top: 30px;
+}
+
+#lang-dropdown {
+    margin-right: 20px;
+    margin-bottom: 0;
 }

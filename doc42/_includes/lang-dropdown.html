@@ -1,0 +1,12 @@
+{% assign current_lang = page.lang %}
+
+<select id="lang-dropdown" onChange="window.location.href=this.value">
+    {% for lang in site.available-language %}
+        {% assign lang_shortcut = site.t[lang].lang-description.shortcut %}
+        {% assign redirect_to = page.permalink | replace_first: current_lang, lang_shortcut %}
+        <option value='{{ redirect_to }}'
+                {% if current_lang == lang_shortcut %} selected="selected" {% endif %}>
+            {{ site.t[lang].lang-description.name }}
+        </option>
+    {% endfor %}
+</select>

@@ -1,20 +1,177 @@
 # Site settings
-title: Doc42
-email: afshin.meh@gmail.com
-author: "Afshin Mehrabani"
-description: "Doc42 - an easy to use documentation tool"
-keywords: "doc42, documentation, doc, usablica, jekyll"
-
+title: Omniscol
+email: didelotkev@gmail.com
+author: "Kevin Didelot"
+github_username:  DidelotK
 baseurl: "" # the subpath of your doc, e.g. /doc
 url: "127.0.0.0.1" # the base hostname & protocol for your site
-twitter_username: kevin
-github_username:  usablica
+keywords: "omniscol, documentation, doc, timetable"
 
 # use this to define the categories of your documentation
-category-list: [getting-started, pages, site, developers, extra]
+category-list: [timetable, dashboard, timetable-managment, admin]
 # optionally you can define icon for each category (for the sidebar)
 # Doc42 uses Font Awesome
-category-icons: [gear, cube, dashboard, code, expand]
+category-icons: [gear, cube, dashboard, code]
+
+# Available language
+available-language: [en, fr, pt, de, ar, vi, it, ru, kk, es, zh]
+
+# Site content
+t:
+  en:
+    lang-description:
+      name: English
+      shortcut: en
+    category-list:
+      timetable: Timetable
+      dashboard: Dashboard
+      timetable-managment: Timetable managment
+      admin: Admin
+    home:
+      description: "Omniscol - a tool to make powerful timetable"
+      title: "Home"
+    contact:
+      title: Contact us
+  fr:
+    lang-description:
+      name: "Français"
+      shortcut: fr
+    category-list:
+      timetable: EDT
+      dashboard: Tableau de bord
+      timetable-managment: Gestion EDT
+      admin: Admin
+    home:
+      description: "Omniscol - est un outil pour faire des emplois du temps"
+      title: "Accueil"
+    contact:
+      title: Contactez nous
+  pt:
+    lang-description:
+      name: TODO
+      shortcut: pt
+    category-list:
+      timetable: TODO
+      dashboard: TODO
+      timetable-managment: TODO
+      admin: TODO
+    home:
+      description: TODO
+      title: TODO
+    contact:
+      title: TODO
+  de:
+    lang-description:
+      name: TODO
+      shortcut: de
+    category-list:
+      timetable: TODO
+      dashboard: TODO
+      timetable-managment: TODO
+      admin: TODO
+    home:
+      description: TODO
+      title: TODO
+    contact:
+      title: TODO
+  ar:
+    lang-description:
+      name: TODO
+      shortcut: ar
+    category-list:
+      timetable: TODO
+      dashboard: TODO
+      timetable-managment: TODO
+      admin: TODO
+    home:
+      description: TODO
+      title: TODO
+    contact:
+      title: TODO
+  vi:
+    lang-description:
+      name: TODO
+      shortcut: vi
+    category-list:
+      timetable: TODO
+      dashboard: TODO
+      timetable-managment: TODO
+      admin: TODO
+    home:
+      description: TODO
+      title: TODO
+    contact:
+      title: TODO
+  it:
+    lang-description:
+      name: TODO
+      shortcut: it
+    category-list:
+      timetable: TODO
+      dashboard: TODO
+      timetable-managment: TODO
+      admin: TODO
+    home:
+      description: TODO
+      title: TODO
+    contact:
+      title: TODO
+  ru:
+    lang-description:
+      name: TODO
+      shortcut: ru
+    category-list:
+      timetable: TODO
+      dashboard: TODO
+      timetable-managment: TODO
+      admin: TODO
+    home:
+      description: TODO
+      title: TODO
+    contact:
+      title: TODO
+  kk:
+    lang-description:
+      name: TODO
+      shortcut: kk
+    category-list:
+      timetable: TODO
+      dashboard: TODO
+      timetable-managment: TODO
+      admin: TODO
+    home:
+      description: TODO
+      title: TODO
+    contact:
+      title: TODO
+  es:
+    lang-description:
+      name: TODO
+      shortcut: es
+    category-list:
+      timetable: TODO
+      dashboard: TODO
+      timetable-managment: TODO
+      admin: TODO
+    home:
+      description: TODO
+      title: TODO
+    contact:
+      title: TODO
+  zh:
+    lang-description:
+      name: TODO
+      shortcut: zh
+    category-list:
+      timetable: TODO
+      dashboard: TODO
+      timetable-managment: TODO
+      admin: TODO
+    home:
+      description: TODO
+      title: TODO
+    contact:
+      title: TODO
 
 # Build settings
 markdown: kramdown

@@ -2,23 +2,13 @@
     <header class="animated fadeIn" id="main_header">
         <nav class="basic border menu">
             <div class="fluid">
-                <a class="header item" href="{{ site.baseurl }}/">
-                    <img src='{{site.baseurl}}/images/mini-logo.png' /> 
-                    {{ site.title }}
+                <a class="header item" href="https://www.omniscol.com/" target="_blank">
+                    <img src='{{site.baseurl}}/images/main-logo.png'/>
                 </a>
-
-                <a class="item" href="/">Home</a>
-                <a class="item" href="{{site.baseurl}}/">Documentation</a>
-                <a class="item" href="https://github.com/usablica/doc42/releases" target="_blank">
-                    <i class="fa fa-download"></i> Download
-                </a>
-                <a class="item" href="https://github.com/usablica/doc42/" target="_blank">
-                    <i class="fa fa-github"></i> Github
-                </a>
-                <a class="item" href="{{site.baseurl}}/support" target="_blank">
-                    <i class="fa fa-support"></i> Support
-                </a>
+                {% assign current_lang = page.lang %}
+                <a class="item" href='/{{ current_lang }}'>{{ site.t[current_lang].home.title }}</a>
             </div>
+            {% include lang-dropdown.html %}
         </nav>
     </header>
 </div>
