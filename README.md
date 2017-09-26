@@ -13,6 +13,8 @@
 docker-compose up
 ```
 
+Then go to <b>localhost:4000/en</b>
+
 # App
 
 ## Launch
