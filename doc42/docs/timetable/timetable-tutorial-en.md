@@ -9,3 +9,7 @@ lang: en
 Coucou
 
 <img class="timetable-image" src='{{ site.baseurl }}/images/en/timetable.png'/>
+<img class="timetable-image" src='{{ site.baseurl }}/images/en/timetable.png'/>
+<img class="timetable-image" src='{{ site.baseurl }}/images/en/timetable.png'/>
+<img class="timetable-image" src='{{ site.baseurl }}/images/en/timetable.png'/>
+<img class="timetable-image" src='{{ site.baseurl }}/images/en/timetable.png'/>

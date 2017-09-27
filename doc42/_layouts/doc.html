@@ -2,12 +2,12 @@
 layout: default
 ---
 
-<div class="row">
-    <div class="two columns">
+<div class="doc-layout">
+    <div class="three columns left-menu">
         {% include sidebar.html %}
     </div>
 
-    <div class="eight columns page-content">
+    <div class="page-content">
         <header class="post-header">
             <h3 class="post-title">{{ page.title }}</h3>
         </header>
@@ -16,8 +16,5 @@ layout: default
             {{ content }}
         </div>
     </div>
-
-    <div id="contents" class="two columns">
-        <div data-kui-sticky></div>
-    </div>
 </div>
+
